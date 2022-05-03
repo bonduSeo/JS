@@ -23,7 +23,9 @@ console.log('10'+10+10);
 
 
 
-let n2;
+let n2 = 1;
+console.log(n2);
+
 //변수
 const N3 = 10;
 //상수

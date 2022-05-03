@@ -22,19 +22,17 @@ var arr = {
             
         }
         return tempArr;
+    },
+    'reduce' : function (cb, zeroAcc) {
+        let acc = zeroAcc;
+        for( var i = 0; i <this.length; i++) {
+            acc = cb(acc,this[i]);
+        }
+        return acc;
     }
 }
 
-var resultArr = arr.filter(function (item, idx) {
-    console.log(`${idx}: ${item}`);
-    if(item <= 8) {
-        return true;
-    }
-});
-
-console.log(resultArr);
-
-
-//call back 함수에 대한이해, 비동기에 대한 이해,콜백지옥, 비동기를 해결하기위한 promise,async/await 학습해놓을것
-
-//sbsteacher gitgub 2021javascript 참고
+var sum = arr.reduce(function (acc, cur) {
+    return acc + cur;
+}, 0);
+console.log('sum : ' + sum);

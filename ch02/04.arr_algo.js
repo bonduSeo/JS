@@ -10,7 +10,7 @@ console.log(`sum : ${sum}`);
 
 
 var sum2 = 0;
-arr.forEach(function(item) {
+arr.forEach(function (item) {
     sum2 += item;
 });
 console.log(`sum2 : ${sum2}`);
@@ -18,7 +18,7 @@ console.log(`sum2 : ${sum2}`);
 // 자바스크립트는 cb이 편하기때문에 함수형으로 처리많이함.
 
 var evenSum = 0;
-arr.forEach(function(item) {
+arr.forEach(function (item) {
     if(item % 2 === 0) {
         evenSum += item;
     }
@@ -26,7 +26,7 @@ arr.forEach(function(item) {
 console.log(evenSum);
 
 
-arr.forEach(function(item, index) {
+arr.forEach(function (item, index) {
         if(index <2) {
             console.log(`item:${item}`);
     }

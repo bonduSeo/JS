@@ -22,19 +22,19 @@ var arr = {
             
         }
         return tempArr;
+    },
+    'map' : function(cb) {
+        var tempArr = [];
+        for(var i=0; i<this.length; i++) {
+            tempArr[i] = cb(this[i]);
+        }
+        return tempArr;
     }
 }
 
-var resultArr = arr.filter(function (item, idx) {
-    console.log(`${idx}: ${item}`);
-    if(item <= 8) {
-        return true;
-    }
+console.log(arr);
+var arr2 = arr.map(function (item) {
+    return item * 2;
 });
 
-console.log(resultArr);
-
-
-//call back 함수에 대한이해, 비동기에 대한 이해,콜백지옥, 비동기를 해결하기위한 promise,async/await 학습해놓을것
-
-//sbsteacher gitgub 2021javascript 참고
+console.log(arr2);

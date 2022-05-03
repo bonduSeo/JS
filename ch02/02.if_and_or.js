@@ -1,5 +1,5 @@
 function m1() {
-    console.log('--m1 fn colled --');
+    console.log('--m1 fn called --');
     return 1;
 }
 function m2() {
