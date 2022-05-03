@@ -1,4 +1,4 @@
-function sum(n1=1, n2=2,n3=3, n4=4) {
+function sum(n1=1, n2=2, n3=3, n4=4) {
     console.log('sum: '+(n1+n2+n3+n4));
 }
 //argument가 안들어왔다면 default 값주는법
