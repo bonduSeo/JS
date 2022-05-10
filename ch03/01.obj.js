@@ -12,3 +12,4 @@ let h2 = new Human('둘리', 120);
 
 h1.showMe();
 h2.showMe();
+// aaaa asdfasdfsadf
