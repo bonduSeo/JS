@@ -23,6 +23,7 @@
 
         function getImgList() {
             var url = `https://picsum.photos/v2/list?page=${page}&limit=100`;
+        
 
             fetch(url).then(function(res) {
                 return res.json();

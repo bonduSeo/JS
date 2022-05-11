@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+    </style>
+    <title>👾</title>
+</head>
+<body>
+    <div id="list"></div>
+    <button onclick="getMore();">더보기</button>
+    <script>
+        let divListElem = document.querySelector('#list');
+        let howManyPic = 21;
+
+        function getImgList() {
+            let url = `https://picsum.photos/200`;
+
+            fetch(url).then(function(res) {
+                // console.log(res);
+                return res
+            }).then(function(res) {
+                // console.log(list);
+                if(counts < howManyPic) {
+                    addImgs(res.url);
+                } else {
+                    changeImgs(res.url);
+                }    
+            });
+            
+        }
+        
+        function addImgs(list) {
+            let img = document.createElement('img');
+            // console.log(counts);
+            img.id = 'id' + counts++;
+            img.src = list;
+            divListElem.append(img);
+        }
+
+        function changeImgs(url) {
+            
+            let imgIdElem = document.querySelector(`#id${Math.floor(Math.random() * howManyPic)}`);
+            // console.log(imgIdElem);
+            
+            imgIdElem.src = url;
+
+        }
+
+        let counts = 0;
+        for(let i=0; i<1000; i++) {
+            getImgList();
+        }
+        
+      
+        
+        
+    </script>
+</body>
+</html>
