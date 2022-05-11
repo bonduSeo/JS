@@ -3,7 +3,7 @@ var p1 = new Promise(function(resolve) {
 });
 
 var p2 = p1.then(function(result) {
-    return result;
+    return result + 10;
 });
 
 p2.then(function(result) {
