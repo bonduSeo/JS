@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "div_id"></div>
+    <div class = "div_class">1</div>
+    <div class = "div_class">2</div>
+    <script>
+       let divIdElem = document.querySelector('#div_id');
+       divIdElem.innerText = '안녕하세요2222';
+       console.log(divIdElem);
+
+       let divClassElem = document.querySelector('.div_class');
+       //결과값 단수. 무조건위에있는게 넘어옴
+       console.log(divClassElem);
+        divClassElem.innerText = 'jjjjj';
+
+        let divClassElems = document.querySelectorAll('.div_class');
+        //배열로 전부 넘어옴
+        console.log(divClassElems);
+        divClassElems[1].innerText = 'zzz';
+
+        let divElem = document.createElement('div');
+        console.log(divElem);
+        divElem.innerHTML = '<a href="https://www.google.com">Google</a>';
+        //아직 메모리에만있고 화면에 안나타남.
+
+        divIdElem.append(divElem);
+        //append 기존것 그대로두고 추가하는함수
+        // divIdElem.prepend(divElem);
+
+    </script>
+</body>
+</html>

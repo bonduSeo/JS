@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지리스트</title>
+    <style>
+        img {width: 100px;}
+    </style>
+</head>
+<body>
+    <div id="list"></div>
+    <button onclick="getMore();">더보기</button>
+    <script>
+        var divListElem = document.querySelector('#list');
+        var page = 1;
+
+        function getMore() {
+            page++;
+            getImgList();
+        }
+
+        function getImgList() {
+            var url = `https://picsum.photos/v2/list?page=${page}&limit=100`;
+
+            fetch(url).then(function(res) {
+                return res.json();
+            }).then(function(list) {
+                // console.log(list);
+                addImgs(list);
+            });
+        }
+
+        function addImgs(list) {
+            for(var i=0; i<list.length; i++) {
+                var item = list[i];
+                var img = document.createElement('img');
+
+                // console.log(item);
+                // img.src = item.download_url;
+                let width = Math.floor(item.width / 10);
+                let height = Math.floor(item.height / 10);
+                // console.log(width);
+                img.src = 'https://picsum.photos/id/'+ item.id + "/" + width + "/" + height;
+                divListElem.append(img);
+
+            }
+        }
+        getImgList();
+        
+    </script>
+</body>
+</html>
+
+<!-- 이것이 ajax통신. JSON을 리턴하는 사이트(페이지에서 가능)  php에서도 html말고 JSON리턴가능-->
