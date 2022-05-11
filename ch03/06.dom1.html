@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "div_id"></div>
+    <div class = "div_class"></div>
+    <div class = "div_class"></div>
+    <script>
+        let divIdElem = document.getElementById('div_id');
+        //저 div의 주소값 넘어옴 (단수)
+        console.log(divIdElem);
+        divIdElem.innerText = '안녕하세요';
+       
+        let divClassElem = document.getElementsByClassName('div_class');
+        //무조건 배열로넘어옴
+        console.log(divClassElem);
+        divClassElem[0].innerText = 'Hello';
+        divClassElem[1].innerText = 'fuck you';
+
+    </script>
+</body>
+</html>
