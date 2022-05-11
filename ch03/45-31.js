@@ -23,3 +23,6 @@ Promise.all(githubIds.map(id => promiseGet(`https://api.github.com/users/${id}`)
 
     .then(console.log)
     .catch(console.error);
+
+
+    // test
