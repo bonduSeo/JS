@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div_id1"></div>
+    <script>
+        // GET 요청을 위한 비동기함수
+
+        const promiseGet = url => {
+            return new Promise((resolve, reject) => {
+                const xhr = new  XMLHttpRequest();
+                xhr.open('GET', url);
+               
+                xhr.send();
+                xhr.onload = () => {
+                    if(xhr.status === 200) {
+                        resolve(JSON.parse(xhr.response));
+                    } else {
+                        reject(new Error(xhr.status));
+                    }
+                };
+            });
+        };
+      
+        const githubIds = ['bonduSeo', 'rlagnswo0505', 'Imperator-augus'];
+        let divIdElem = document.querySelector('#div_id1');
+
+        Promise.all(githubIds.map(id => promiseGet(`https://api.github.com/users/${id}`)))
+
+            .then(user => user.map(user => user.name))
+
+            .then(name => {
+                console.log(name);
+                let nameDiv = document.createElement('div');
+                name.foreach((eachName) => {
+                    nameDiv.innerText += eachName;
+                });
+
+            })
+            .catch(console.error);
+
+
+       
+
+    // test
+    </script>
+</body>
+</html>

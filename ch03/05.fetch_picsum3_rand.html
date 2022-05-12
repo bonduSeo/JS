@@ -17,13 +17,14 @@
     <button onclick="getMore();">더보기</button>
     <script>
         let divListElem = document.querySelector('#list');
-        let howManyPic = 21;
+        let howManyPic = 24;
 
         function getImgList() {
             let url = `https://picsum.photos/200`;
 
             fetch(url).then(function(res) {
                 // console.log(res);
+                
                 return res
             }).then(function(res) {
                 // console.log(list);
@@ -48,16 +49,30 @@
             
             let imgIdElem = document.querySelector(`#id${Math.floor(Math.random() * howManyPic)}`);
             // console.log(imgIdElem);
-            
+      
             imgIdElem.src = url;
+            let today = new Date();
+             let seconds = today.getSeconds();
+             console.log(seconds);
+             console.log(i);
+            if(seconds === 30) {
+                // i = 0;
+                console.log(nn++);
+            }
 
-        }
-
-        let counts = 0;
-        for(let i=0; i<1000; i++) {
-            getImgList();
         }
         
+       
+
+        let counts = 0;
+        var i=0;
+        let nn = 0
+        for(i; i<1000; i++) {
+            getImgList();
+           
+        }
+        
+       
       
         
         

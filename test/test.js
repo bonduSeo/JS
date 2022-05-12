@@ -25,3 +25,5 @@ p1.then(function (result) {
     console.log(p1);
     console.log(result);
 });
+
+
