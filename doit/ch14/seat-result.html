@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      table,
+      td {
+        border: 1px solid black;
+      }
+      td {
+        padding: 5px;
+        font-size: 0.9em;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>자리배치도</h1>
+
+    <script>
+      let memNum = Number(prompt("입장객 수"));
+      if (memNum > 0) {
+        colNum = 6;
+        rowNum = Math.ceil(memNum / colNum);
+      }
+      console.log(rowNum);
+
+      let count = 1;
+
+      document.write("<table>");
+
+      for (let i = 0; i < rowNum; i++) {
+        document.write("<tr>");
+        for (let j = 0; j < colNum; j++) {
+          document.write("<td>");
+          if (count <= memNum) {
+            document.write("좌석" + count++);
+          } else {
+            document.write("");
+          }
+
+          document.write("</td>");
+          if (count == rowNum) {
+          }
+        }
+        document.write("</tr>");
+      }
+      document.write("</table>");
+    </script>
+  </body>
+</html>
