@@ -7,13 +7,14 @@
     <title>Document</title>
   </head>
   <body>
-    <form onclick="alert('form')">
-      form
-      <div onclick="alert('div')">
-        div
-        <p onclick="alert('p1')">p1</p>
-        <p onclick="alert('p2')">p2</p>
-      </div>
-    </form>
+    <script>
+      const now = new Date();
+      console.log(now);
+      now.myFn = () => {
+        alert("dd");
+      };
+      now.myFn();
+      console.log(now);
+    </script>
   </body>
 </html>

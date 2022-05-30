@@ -25,8 +25,13 @@
         resultDiv.style.backgroundColor = color;
       };
       // console.log(document.querySelector(".purple"));
-      // document.querySelector(".purple").onclick.style.backgroundColor =
-      // "purple";
+      document.querySelector(".purple").onclick = function () {
+        changeBg("purple");
+      };
+      //이거 궁금했던것. html에서 js를 줄이고 js에서 다 해결하려고할때
+      // onclick 때 함수에 파라미터를 주려면 이렇게 익명함수를 이용하면 됨
+      // 익명함수 파라미터 ()자리에는 e (이벤트객체)가 들어오고 콜백함수로 사용할수있다
+      // onclick = xx(a); 이라고하면 xx 함수의 리턴값 리터럴이 onclick 에 할당되네!
     </script>
   </body>
 </html>
