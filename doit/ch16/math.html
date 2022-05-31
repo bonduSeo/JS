@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   while (true) {
+      //     const rVal = Math.floor(Math.random() * 9 + 1);
+      //     console.log(rVal);
+      //     if (rVal < 1 || rVal > 9) {
+      //       console.log("잘못만들었음");
+      //       break;
+      //     }
+      //   }
+
+      //   const rVal = Math.floor(Math.random() * 11) + 10;
+      //   console.log(rVal);
+
+      let vals = {};
+      for (let i = 0; i < 100000; i++) {
+        const rVal = Math.round(Math.random() * 10) + 10;
+        if (typeof vals[rVal] == "undefined") {
+          vals[rVal] = 0;
+          console.log(vals[rVal]);
+        } else {
+          vals[rVal] = Number(vals[rVal]) + 1;
+        }
+        // console.log(rVal);
+      }
+      console.log(vals);
+
+      //   for (let i = 0; i < 1000; i++) {
+      //     const rVal = Math.floor(Math.random() * 26) + 25;
+      //     console.log(rVal);
+      //     if (rVal == 25) {
+      //       console.log("!!!!!!!!!!!!!");
+      //     }
+      //   }
+
+      //   for (let i = 0; i < 1000; i++) {
+      //     const rVal2 = Math.floor(Math.random() * 16) + 25;
+      //     console.log(rVal2);
+      //   }
+    </script>
+  </body>
+</html>

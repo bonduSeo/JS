@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>현재 시간 <span id="current" class="display"></span></p>
+    <br />
+    <p>현재 시간 <span id="current2" class="display2"></span></p>
+    <script>
+      let cnt = 0;
+      //   setInterval(displayNow, 100);
+      requestAnimationFrame(displayNow);
+
+      function displayNow() {
+        // document.querySelector("#current").innerHTML = "<b>안녕</b>";
+        let nowTime = new Date();
+        let amPm = "AM";
+        if (nowTime.getHours() >= 12) {
+          amPm = "PM";
+          nowHours = nowTime.getHours() - 12;
+        } else {
+          nowHours = nowTime.getHours();
+        }
+        nowHours = setTwoNum(nowHours);
+        let nowMins = setTwoNum(nowTime.getMinutes());
+        let nowsec = setTwoNum(nowTime.getSeconds());
+
+        document.querySelector("#current").innerHTML =
+          "<b>" + amPm + nowHours + ":" + nowMins + ":" + nowsec + "</b>";
+
+        document.querySelector("#current2").innerHTML =
+          nowTime.toLocaleTimeString();
+
+        requestAnimationFrame(displayNow);
+      }
+      function setTwoNum(n) {
+        return ("0" + n).slice(-2);
+      }
+    </script>
+  </body>
+</html>

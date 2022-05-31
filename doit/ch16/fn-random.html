@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function randomValue(sVal, eVal) {
+        return Math.floor(Math.random() * (eVal - sVal + 1)) + sVal;
+      }
+
+      console.log(randomValue(10, 20));
+
+      vals = {};
+      for (let i = 0; i < 100000; i++) {
+        const ranVal = randomValue(10, 20);
+        if (typeof vals[ranVal] == "undefined") {
+          vals[ranVal] = 0;
+        } else {
+          vals[ranVal] += 1;
+        }
+      }
+      console.log(vals);
+    </script>
+  </body>
+</html>
