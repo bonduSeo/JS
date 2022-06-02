@@ -1,5 +1,7 @@
 import { Ball } from "./ball.js";
 
+import { Bar } from "./bar.js";
+
 class App {
   constructor() {
     this.canvas = document.createElement("canvas");
@@ -10,7 +12,12 @@ class App {
     window.addEventListener("resize", this.resize.bind(this), false);
     this.resize();
 
-    this.ball = new Ball(this.stageWidth, this.stageHeight, 60, 15);
+    this.ball = new Ball(this.stageWidth, this.stageHeight, 30, 10);
+    this.ball2 = new Ball(this.stageWidth, this.stageHeight, 30, 10);
+    this.bar = new Bar(this.stageWidth, this.stageHeight, 200, 20, 15);
+
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
 
     // window.requestAnimationFrame(this.animate.bind(this));
     this.animate();
@@ -30,14 +37,26 @@ class App {
 
     this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
 
-    this.ball.draw(this.ctx, this.stageWidth, this.stageHeight, keyStatus);
+    this.bar.draw(this.ctx, this.stageWidth, this.stageHeight, keyStatus);
+    this.ball.draw(
+      this.ctx,
+      this.stageWidth,
+      this.stageHeight,
+      keyStatus,
+      this.bar
+    );
+    this.ball2.draw(
+      this.ctx,
+      this.stageWidth,
+      this.stageHeight,
+      keyStatus,
+      this.bar
+    );
   }
 }
 
 window.onload = () => {
   new App();
-  document.addEventListener("keydown", keyDownHandler, false);
-  document.addEventListener("keyup", keyUpHandler, false);
 };
 
 // 초기화, true로 되면 해당 방향으로 이동

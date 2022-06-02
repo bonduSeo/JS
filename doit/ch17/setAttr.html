@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #main {
+        width: 500px;
+        height: 300px;
+      }
+      #main > img {
+        width: 100%;
+      }
+      #sub {
+        width: 500px;
+        height: 100px;
+        display: flex;
+      }
+      #sub > img {
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <img
+        src="https://i.picsum.photos/id/505/500/300.jpg?hmac=2BUZO-i2mCzojAgQiQKz1Uc4e_WRKS2xWzI3wUb2pTA"
+      />
+    </div>
+    <div id="sub">
+      <img
+        src="https://i.picsum.photos/id/505/500/300.jpg?hmac=2BUZO-i2mCzojAgQiQKz1Uc4e_WRKS2xWzI3wUb2pTA"
+      />
+      <img
+        src="https://i.picsum.photos/id/445/500/300.jpg?hmac=8I9LGrExo8yOfrUttbyxoSwEHtbsDaMV3tSZ9d88iqQ"
+      />
+      <img
+        src="https://i.picsum.photos/id/862/500/300.jpg?hmac=eVs6TPxSKUGrHdbCRstgpw3m2hjlsWKIwp-XbWjp7bs"
+      />
+    </div>
+    <script>
+      let mainImg = document.querySelector("#main>img");
+      let imgList = document.querySelectorAll("#sub>img");
+
+      imgList.forEach((img) => {
+        img.addEventListener("click", function () {
+          let imgLink = img.getAttribute("src");
+          mainImg.setAttribute("src", imgLink);
+          //   console.log(e.target.src);
+          console.log(img);
+          console.log(this);
+        });
+      });
+
+      //arrow fn이랑 걍fn 이랑 this가 가르키는것이 다름
+    </script>
+  </body>
+</html>
