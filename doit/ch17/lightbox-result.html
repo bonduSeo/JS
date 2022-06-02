@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      ul {
+        list-style: none;
+      }
+      li {
+        display: inline-block;
+      }
+      .pic {
+        width: 200px;
+        cursor: pointer;
+      }
+      #lightbox {
+        height: 100%;
+        width: 100%;
+        background-color: #6d6d6db0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+      }
+      #lightbox > img {
+        border: 2px solid #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li>
+          <img
+            class="pic"
+            src="https://i.picsum.photos/id/505/500/300.jpg?hmac=2BUZO-i2mCzojAgQiQKz1Uc4e_WRKS2xWzI3wUb2pTA"
+          />
+        </li>
+        <li>
+          <img
+            class="pic"
+            src="https://i.picsum.photos/id/445/500/300.jpg?hmac=8I9LGrExo8yOfrUttbyxoSwEHtbsDaMV3tSZ9d88iqQ"
+          />
+        </li>
+        <li>
+          <img
+            class="pic"
+            src="https://i.picsum.photos/id/862/500/300.jpg?hmac=eVs6TPxSKUGrHdbCRstgpw3m2hjlsWKIwp-XbWjp7bs"
+          />
+        </li>
+      </ul>
+    </div>
+    <div id="lightbox">
+      <img src="" id="lightboxImage" />
+    </div>
+    <script>
+      const lightboxImage = document.querySelector("#lightboxImage");
+      const lightBox = document.querySelector("#lightbox");
+      const pics = document.querySelectorAll(".pic");
+
+      pics.forEach((pic) => {
+        pic.addEventListener("click", function (e) {
+          showLightbox(e);
+        });
+      });
+      function showLightbox(e) {
+        const bigLocation = e.target.src;
+        // console.log(e);
+        lightboxImage.setAttribute("src", bigLocation);
+        lightbox.style.display = "flex";
+      }
+
+      lightBox.addEventListener("click", () => {
+        console.log("aa");
+
+        lightBox.style.display = "none";
+      });
+    </script>
+  </body>
+</html>

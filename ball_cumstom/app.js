@@ -13,7 +13,7 @@ class App {
     this.resize();
 
     this.ball = new Ball(this.stageWidth, this.stageHeight, 30, 10);
-    this.ball2 = new Ball(this.stageWidth, this.stageHeight, 30, 10);
+    // this.ball2 = new Ball(this.stageWidth, this.stageHeight, 30, 10);
     this.bar = new Bar(this.stageWidth, this.stageHeight, 200, 20, 15);
 
     document.addEventListener("keydown", keyDownHandler, false);
@@ -45,13 +45,13 @@ class App {
       keyStatus,
       this.bar
     );
-    this.ball2.draw(
-      this.ctx,
-      this.stageWidth,
-      this.stageHeight,
-      keyStatus,
-      this.bar
-    );
+    // this.ball2.draw(
+    //   this.ctx,
+    //   this.stageWidth,
+    //   this.stageHeight,
+    //   keyStatus,
+    //   this.bar
+    // );
   }
 }
 

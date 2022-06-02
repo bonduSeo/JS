@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img
+      id="cover"
+      src="https://i.picsum.photos/id/505/500/300.jpg?hmac=2BUZO-i2mCzojAgQiQKz1Uc4e_WRKS2xWzI3wUb2pTA"
+    />
+
+    <script>
+      const imgCover = document.querySelector("#cover");
+      imgCover.addEventListener("mouseover", function () {
+        this.src =
+          "https://i.picsum.photos/id/445/500/300.jpg?hmac=8I9LGrExo8yOfrUttbyxoSwEHtbsDaMV3tSZ9d88iqQ";
+      });
+      imgCover.addEventListener("mouseout", function () {
+        this.src =
+          "https://i.picsum.photos/id/505/500/300.jpg?hmac=2BUZO-i2mCzojAgQiQKz1Uc4e_WRKS2xWzI3wUb2pTA";
+      });
+    </script>
+  </body>
+</html>
