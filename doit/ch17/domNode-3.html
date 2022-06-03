@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .forToggle {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DOM을 공부합시다</h1>
+    <button onclick="toggleContents();">더 보기</button>
+    <div id="info"></div>
+    <script>
+      const imgSrc =
+        "https://i.picsum.photos/id/1071/500/300.jpg?hmac=xQJZVvzAmoi_RxNTel2Q9m28smnO5p__SJzN56_TRjk";
+      const imgAlt = "이미지정보";
+      const divInfo = document.querySelector("#info");
+      divInfo.classList.add("forToggle");
+      addContents();
+
+      function addContents() {
+        const newP = divInfo.appendChild(document.createElement("p"));
+
+        newP.append("DOM은 document object model의 줄임말입니다");
+        const newImg = divInfo.appendChild(document.createElement("img"));
+        newImg.src = imgSrc;
+        newImg.alt = imgAlt;
+      }
+
+      function toggleContents() {
+        divInfo.classList.toggle("forToggle");
+      }
+    </script>
+  </body>
+</html>

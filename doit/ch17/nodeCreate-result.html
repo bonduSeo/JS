@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Web Programming</h1>
+    <p>공부할 주제를 기록해 보세요</p>
+    <div>
+      <input type="text" id="subject" />
+      <input type="button" value="추가" onclick="newReg();" />
+      <input type="button" value="삭제" onclick="delSubject();" />
+    </div>
+    <div id="itemList"></div>
+    <script>
+      function newReg() {
+        const newDiv = document.createElement("div");
+
+        newDiv.addEventListener("click", (e) => {
+          delReg(e);
+        });
+        const newValue = document.querySelector("#subject").value;
+        const delButton = document.createElement("button");
+        delButton.innerText = "삭제";
+        newDiv.append(newValue, delButton);
+        delButton.addEventListener("click", (e) => {
+          delReg(e);
+        });
+        document.querySelector("#itemList").prepend(newDiv);
+        document.querySelector("#subject").value = "";
+      }
+
+      //개별삭제
+      function delReg(e) {
+        // document.querySelector("#itemList").removeChild(e.target);
+        e.target.parentNode.remove();
+      }
+
+      //리스트마지막(가장오래된것) 삭제
+      function delSubject() {
+        // console.log(document.querySelectorAll("#itemList > div"));
+        let listAll = document.querySelectorAll("#itemList > div");
+        listAll[listAll.length - 1].remove();
+      }
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key == "Enter") {
+          newReg();
+        }
+      });
+    </script>
+  </body>
+</html>
