@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+        .c_pointer {
+          cursor: pointer;
+        }
+    </style>
   </head>
   <body>
     <h1>Web Programming</h1>
@@ -20,12 +25,13 @@
         const newDiv = document.createElement("div");
 
         newDiv.addEventListener("click", (e) => {
-          delReg(e);
+          delReg2(e);
         });
         const newValue = document.querySelector("#subject").value;
         const delButton = document.createElement("button");
         delButton.innerText = "삭제";
         newDiv.append(newValue, delButton);
+        newDiv.classList.add('c_pointer');
         delButton.addEventListener("click", (e) => {
           delReg(e);
         });
@@ -37,6 +43,11 @@
       function delReg(e) {
         // document.querySelector("#itemList").removeChild(e.target);
         e.target.parentNode.remove();
+      }
+
+      function delReg2(e) {
+        
+        e.target.remove();
       }
 
       //리스트마지막(가장오래된것) 삭제
