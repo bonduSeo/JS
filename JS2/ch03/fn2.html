@@ -9,11 +9,18 @@
   <body>
     <script>
       function sum() {
-        let sum = 0;
         console.log(arguments);
-        for (let i = 0; i < arguments.length; i++) {
-          sum += arguments[i];
-        }
+        let sum = 0;
+
+        // for (let i = 0; i < arguments.length; i++) {
+        //   sum += arguments[i];
+        // }
+
+        Array.prototype.forEach.call(arguments, function (item) {
+          sum += item;
+        });
+        // forEach매소드가 없어도 강제로 돌리는법
+
         return sum;
       }
       console.log(sum(1, 2, 3, 4, 5, 6, 7, 2, 10));
