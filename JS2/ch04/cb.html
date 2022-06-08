@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function calc(cb, n1, n2) {
+        return cb(n1, n2);
+      }
+
+      function fnSum(n1, n2) {
+        return n1 + n2;
+      }
+
+      function fnMulti(n1, n2) {
+        return n1 * n2;
+      }
+
+      const r1 = calc(fnSum, 10, 20);
+      console.log(r1);
+
+      const r2 = calc(fnMulti, 10, 20);
+      console.log(r2);
+
+      const r4 = calc(
+        (n1, n2) => {
+          return n1 / n2;
+        },
+        6,
+        3
+      );
+      console.log(r4);
+
+      const r3 = calc(
+        (n1, n2) => {
+          return n1 - n2;
+        },
+        100,
+        20
+      );
+      console.log(r3);
+    </script>
+  </body>
+</html>

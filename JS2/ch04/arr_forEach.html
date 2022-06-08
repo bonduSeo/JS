@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arr = [10, 42, 22, 38, 17, 12, 45];
+      let sum = 0;
+      function fnSum(item) {
+        sum += item;
+      }
+      arr.forEach(fnSum);
+      console.log(sum);
+      console.log(arr);
+
+      let sum2 = 0;
+      arr.forEach((item) => {
+        sum2 += item;
+      });
+      console.log(sum2);
+      console.log("----");
+      arr.forEach(function (item, idx) {
+        console.log(`arr[${idx}] : ${item}`);
+      });
+
+      console.log("----");
+      arr.forEach((item) => {
+        if (item % 2 == 0) {
+          console.log(item);
+        }
+      });
+
+      console.log("-----");
+      let sum_odd = 0;
+      arr.forEach((item) => {
+        if (item % 2) {
+          sum_odd += item;
+        }
+      });
+      console.log(sum_odd);
+    </script>
+  </body>
+</html>
