@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul {
+        list-style: none;
+      }
+      .container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #f5f5f5;
+      }
+      .listing-card {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .listing-card li {
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid #f0f0f0;
+      }
+      .listing-card li .img {
+        padding-top: 70%;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .author {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- <ul class="listing-card"></ul> -->
+    </div>
+    <script>
+      const container = document.querySelector(".container");
+      const listingCard = document.createElement("ul");
+      listingCard.classList.add("listing-card");
+
+      let page = 1;
+      getImgs();
+
+      window.addEventListener("scroll", (e) => {
+        const scrollHeight = document.documentElement.scrollHeight;
+        const scrollTop = document.documentElement.scrollTop;
+        const clientHeight = document.documentElement.clientHeight;
+
+        if (scrollTop + clientHeight >= scrollHeight) {
+          getImgs();
+        }
+      });
+
+      function getImgs() {
+        fetch(`https://picsum.photos/v2/list?page=${page++}&limit=20`)
+          .then((res) => {
+            return res.json();
+          })
+          .then((list) => {
+            console.log(list);
+            makeCards(list);
+          });
+      }
+
+      function makeCards(list) {
+        list.forEach((element) => {
+          const cardLi = document.createElement("li");
+          const imgDiv = document.createElement("div");
+          imgDiv.classList.add("img");
+
+          container.append(listingCard);
+          listingCard.append(cardLi);
+          cardLi.append(imgDiv);
+
+          const url = element["download_url"];
+          imgDiv.style.backgroundImage = `url(${url})`;
+
+          const authorDiv = document.createElement("div");
+          authorDiv.innerHTML = `${element["author"]}`;
+          cardLi.append(authorDiv);
+          authorDiv.classList.add("author");
+        });
+      }
+    </script>
+  </body>
+</html>
