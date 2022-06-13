@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function elt(name, attr) {
+        const node = document.createElement(name);
+        if (attr) {
+          for (const item in attr) {
+            if (attr.hasOwnProperty(item)) {
+              node.setAttribute(item, attr[item]);
+            }
+          }
+        }
+        return node;
+      }
+
+      function createIconEditor(parent, nx, ny) {
+        // color input
+        const inputColor = elt("input", { type: "color" });
+        parent.appendChild(inputColor);
+
+        //all clear Button
+        const btnAllClear = elt("input", { type: "button", value: "All Clear", class: "clr" });
+        parent.appendChild(btnAllClear);
+
+        //table
+        const table = elt("table");
+        parent.appendChild(table);
+
+        table.style.borderCollapse = "collapse";
+        table.style.marginTop = "10px";
+
+        for (let i = 0; i < nx; i++) {
+          const eleTr = elt("tr");
+          table.appendChild(eleTr);
+          for (let j = 0; j < ny; j++) {
+            const eleTd = elt("td", { style: "border : 1px solid black; width: 10px; height: 10px;" });
+
+            eleTr.appendChild(eleTd);
+          }
+        }
+      }
+
+      createIconEditor(document.body, 10, 10);
+
+      const tdArray = document.querySelectorAll("td");
+      tdArray.forEach((td) => {
+        td.addEventListener("click", (e) => {
+          if (e.target.style.backgroundColor == "") {
+            e.target.style.backgroundColor = document.querySelector("input[type=color]").value;
+          } else {
+            e.target.style.backgroundColor = "";
+          }
+        });
+      });
+
+      document.querySelector(".clr").addEventListener("click", () => {
+        tdArray.forEach((td) => {
+          td.style.backgroundColor = "";
+        });
+      });
+    </script>
+  </body>
+</html>
