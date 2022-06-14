@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      try {
+        console.log("aaa");
+        const result = new Array(-1);
+        console.log("bbb");
+      } catch (e) {
+        console.error("catch:" + e.name);
+      }
+      console.warn("cccc");
+
+      console.log("------");
+
+      try {
+        console.log("aaa");
+        console.log("bbb");
+        console.log("ccc");
+      } catch (e) {
+        console.log(e.name);
+      }
+      console.log("------");
+      try {
+        console.log("aaa");
+        const result = new Array(-1);
+        console.log("bbb");
+      } catch (e) {
+        console.error("catch:" + e.name);
+      } finally {
+        console.log("무조건실행됨!");
+      }
+      console.log("------");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      function elt(name, attr) {
+        const node = document.createElement(name);
+        if (attr) {
+          for (const item in attr) {
+            if (attr.hasOwnProperty(item)) {
+              node.setAttribute(item, attr[item]);
+            }
+          }
+        }
+        return node;
+      }
+
+      const eleImg = elt("img", {
+        src: "//upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Hippopotamus_in_the_Zambezi.jpg/300px-Hippopotamus_in_the_Zambezi.jpg",
+        alt: "하마",
+      });
+      console.log(eleImg);
+      const divContainer = document.querySelector("#container");
+      divContainer.appendChild(eleImg);
+    </script>
+  </body>
+</html>
