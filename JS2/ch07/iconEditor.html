@@ -26,7 +26,11 @@
         parent.appendChild(inputColor);
 
         //all clear Button
-        const btnAllClear = elt("input", { type: "button", value: "All Clear", class: "clr" });
+        const btnAllClear = elt("input", {
+          type: "button",
+          value: "All Clear",
+          class: "clr",
+        });
         parent.appendChild(btnAllClear);
 
         //table
@@ -40,7 +44,9 @@
           const eleTr = elt("tr");
           table.appendChild(eleTr);
           for (let j = 0; j < ny; j++) {
-            const eleTd = elt("td", { style: "border : 1px solid black; width: 10px; height: 10px;" });
+            const eleTd = elt("td", {
+              style: "border : 1px solid black; width: 10px; height: 10px;",
+            });
 
             eleTr.appendChild(eleTd);
           }
@@ -51,11 +57,24 @@
 
       const tdArray = document.querySelectorAll("td");
       tdArray.forEach((td) => {
-        td.addEventListener("click", (e) => {
-          if (e.target.style.backgroundColor == "") {
-            e.target.style.backgroundColor = document.querySelector("input[type=color]").value;
-          } else {
-            e.target.style.backgroundColor = "";
+        td.addEventListener("mouseover", (e) => {
+          console.log(e);
+          if (e.buttons == 1) {
+            if (
+              e.target.style.backgroundColor == "" ||
+              e.target.color16 !==
+                document.querySelector("input[type=color]").value
+            ) {
+              e.target.style.backgroundColor =
+                document.querySelector("input[type=color]").value;
+              e.target.color16 =
+                document.querySelector("input[type=color]").value;
+            } else if (
+              e.target.color16 ==
+              document.querySelector("input[type=color]").value
+            ) {
+              // e.target.style.backgroundColor = "";
+            }
           }
         });
       });
@@ -63,6 +82,7 @@
       document.querySelector(".clr").addEventListener("click", () => {
         tdArray.forEach((td) => {
           td.style.backgroundColor = "";
+          td.color16 = "";
         });
       });
     </script>
